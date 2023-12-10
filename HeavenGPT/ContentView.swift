@@ -1,5 +1,6 @@
 import SwiftUI
 import Combine
+import AppKit
 
 // MARK: - ServerResponse, Choice, Content, ChatRequest, Message
 
@@ -120,11 +121,31 @@ class ChatViewModel: ObservableObject {
         prompt = ""
     }
 
+    func saveMessageToFile(_ message: ChatMessage, filename: String = "data.txt") {
+        let fileURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent(filename)
+        do {
+            showAlertMessage(message: "Saved to file: \(fileURL)")
+            try message.content.write(to: fileURL, atomically: true, encoding: .utf8)
+        } catch {
+            showAlertMessage(message: "Error saving to file: \(error.localizedDescription)", title: "Error")
+        }
+    }
+    
     func deleteMessage(_ message: ChatMessage) {
         if let index = messages.firstIndex(where: { $0.id == message.id }) {
             messages.remove(at: index)
         }
     }
+    
+    func showAlertMessage(message: String,title: String = "OK"){
+        let alert = NSAlert()
+        alert.messageText = message
+        alert.alertStyle = .informational
+        alert.addButton(withTitle: title)
+        alert.accessoryView = NSHostingView(rootView: ErrorView(errorMessage: errorMessage))
+        alert.runModal()
+    }
+
 }
 
 // MARK: - ChatMessage Model
@@ -149,19 +170,28 @@ struct ErrorView: View {
 }
 
 // MARK: - ChatScrollView
+
 struct ChatScrollView: View {
     @Binding var messages: [ChatMessage]
+    var viewModel: ChatViewModel
     var deleteMessage: (ChatMessage) -> Void
 
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 10) {
                 ForEach(messages) { message in
-                    ChatMessageView(message: message) {
-                        if let index = messages.firstIndex(where: { $0.id == message.id }) {
-                            deleteMessage(messages[index])
-                        }
-                    }
+                    ChatMessageView(message: message,
+                        deleteAction: {
+                            deleteMessage(message)
+                        },
+                        copyAction: {
+                            let pasteboard = NSPasteboard.general
+                            pasteboard.clearContents()
+                            pasteboard.setString(message.content, forType: .string)
+                        },
+                        saveAction: {
+                            viewModel.saveMessageToFile(message)
+                        })
                 }
             }
         }
@@ -169,17 +199,27 @@ struct ChatScrollView: View {
 }
 
 
+
+
 // MARK: - ChatMessageView
 
 struct ChatMessageView: View {
     var message: ChatMessage
     var deleteAction: () -> Void
+    var copyAction: () -> Void
+    var saveAction: () -> Void
 
     var body: some View {
         HStack {
             Text("\(message.role): \(message.content)")
                 .foregroundColor(message.role == "User" ? .blue : .green)
             Spacer()
+            Button(action: copyAction) {
+                Image(systemName: "doc.on.doc")
+            }
+            Button(action: saveAction) {
+                Image(systemName: "square.and.arrow.down")
+            }
             Button(action: deleteAction) {
                 Image(systemName: "trash")
                     .foregroundColor(.red)
@@ -217,7 +257,8 @@ struct ContentView: View {
                 ProgressView()
             } else {
                 ErrorView(errorMessage: viewModel.errorMessage)
-                ChatScrollView(messages: $viewModel.messages, deleteMessage: viewModel.deleteMessage)
+                ChatScrollView(messages: $viewModel.messages, viewModel: viewModel, deleteMessage: viewModel.deleteMessage)
+
                 MessageInputView(prompt: $viewModel.prompt, sendAction: viewModel.sendMessage)
             }
         }
