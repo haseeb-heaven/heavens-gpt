@@ -2,6 +2,8 @@
 
 HeavenGPT is **ChatGPT for coders**. It's free, secure, and created by Heaven. This tool is designed to assist developers with various coding tasks, including generating code documentation and more. In addition, it offers all the capabilities of ChatGPT. If you're using MacOS, you'll enjoy features like saving chat history, downloading generated code, and syntax highlighting.
 
+![copilot](https://github.com/haseeb-heaven/HeavenGPT/blob/main/resources/main_ui.png?raw=true)</br>
+
 ## Features
 * **Generate code documentation:** Save time and effort by automatically generating comprehensive documentation for your code.
 * **Code generation:** Generate code snippets based on your natural language descriptions.
