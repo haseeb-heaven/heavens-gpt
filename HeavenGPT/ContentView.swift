@@ -120,8 +120,10 @@ class ChatViewModel: ObservableObject {
         prompt = ""
     }
 
-    func deleteMessage(at index: IndexSet) {
-        messages.remove(atOffsets: index)
+    func deleteMessage(_ message: ChatMessage) {
+        if let index = messages.firstIndex(where: { $0.id == message.id }) {
+            messages.remove(at: index)
+        }
     }
 }
 
@@ -147,36 +149,46 @@ struct ErrorView: View {
 }
 
 // MARK: - ChatScrollView
-
 struct ChatScrollView: View {
     @Binding var messages: [ChatMessage]
-    var deleteAction: (IndexSet) -> Void
+    var deleteMessage: (ChatMessage) -> Void
 
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 10) {
                 ForEach(messages) { message in
-                    ChatMessageView(message: message)
+                    ChatMessageView(message: message) {
+                        if let index = messages.firstIndex(where: { $0.id == message.id }) {
+                            deleteMessage(messages[index])
+                        }
+                    }
                 }
-                .onDelete(perform: deleteAction)
             }
         }
     }
 }
 
+
 // MARK: - ChatMessageView
 
 struct ChatMessageView: View {
     var message: ChatMessage
+    var deleteAction: () -> Void
 
     var body: some View {
         HStack {
             Text("\(message.role): \(message.content)")
                 .foregroundColor(message.role == "User" ? .blue : .green)
             Spacer()
+            Button(action: deleteAction) {
+                Image(systemName: "trash")
+                    .foregroundColor(.red)
+            }
         }
     }
 }
+
+
 
 // MARK: - MessageInputView
 
@@ -195,8 +207,7 @@ struct MessageInputView: View {
     }
 }
 
-// MARK: - ContentView
-
+// MARK: - ContentView (for reference)
 struct ContentView: View {
     @StateObject private var viewModel = ChatViewModel()
 
@@ -206,11 +217,15 @@ struct ContentView: View {
                 ProgressView()
             } else {
                 ErrorView(errorMessage: viewModel.errorMessage)
-                ChatScrollView(messages: $viewModel.messages, deleteAction: viewModel.deleteMessage)
+                ChatScrollView(messages: $viewModel.messages, deleteMessage: viewModel.deleteMessage)
                 MessageInputView(prompt: $viewModel.prompt, sendAction: viewModel.sendMessage)
             }
         }
         .frame(width: 600, height: 400)
         .padding()
     }
+}
+
+#Preview{
+    ContentView()
 }
