@@ -11,6 +11,7 @@
 		825FCFD22B253EB900574E2A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 825FCFD12B253EB900574E2A /* ContentView.swift */; };
 		825FCFD42B253EBB00574E2A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 825FCFD32B253EBB00574E2A /* Assets.xcassets */; };
 		825FCFD72B253EBB00574E2A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 825FCFD62B253EBB00574E2A /* Preview Assets.xcassets */; };
+		826B604E2B267526009E2266 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826B604D2B267526009E2266 /* Logger.swift */; };
 		82E4EE762B258C4600EE5CB6 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 82E4EE752B258C4600EE5CB6 /* logo.png */; };
 		82E4EE792B26174300EE5CB6 /* Highlightr in Frameworks */ = {isa = PBXBuildFile; productRef = 82E4EE782B26174300EE5CB6 /* Highlightr */; };
 /* End PBXBuildFile section */
@@ -22,6 +23,7 @@
 		825FCFD32B253EBB00574E2A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		825FCFD62B253EBB00574E2A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		825FCFD82B253EBB00574E2A /* HeavenGPT.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HeavenGPT.entitlements; sourceTree = "<group>"; };
+		826B604D2B267526009E2266 /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		82E4EE752B258C4600EE5CB6 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -58,6 +60,7 @@
 			children = (
 				825FCFCF2B253EB900574E2A /* HeavenGPTApp.swift */,
 				825FCFD12B253EB900574E2A /* ContentView.swift */,
+				826B604D2B267526009E2266 /* Logger.swift */,
 				82E4EE752B258C4600EE5CB6 /* logo.png */,
 				825FCFD32B253EBB00574E2A /* Assets.xcassets */,
 				825FCFD82B253EBB00574E2A /* HeavenGPT.entitlements */,
@@ -153,6 +156,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				825FCFD22B253EB900574E2A /* ContentView.swift in Sources */,
+				826B604E2B267526009E2266 /* Logger.swift in Sources */,
 				825FCFD02B253EB900574E2A /* HeavenGPTApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
