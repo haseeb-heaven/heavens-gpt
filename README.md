@@ -40,14 +40,19 @@ We welcome contributions to make HeavenGPT even better! If you'd like to contrib
 
 ## 🏷️ **Versioning**
 
-HeavenGPT uses semantic versioning to keep track of releases.
+- Version 1.0.0: Initial release
 
 ## 📜 **License**
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
+### GPT **LICENSE**
+- This app uses **HeavenGPT** which has its own license. See [HeavenGPT-Licence](https://chatgpt-4all.haseebmir.repl.co/privacy) for details, and make sure to comply with it and read it before using this app.
+
+### GPT **Models Used**
+- This uses OpenAI **GPT-3.5 Turbo Model**. See [OpenAI](https://openai.com) for details, and make sure to comply with it and read it before using this app.
+
+
 ## 👨‍💻 **Authors**
 
 - Heaven (@haseeb-heaven) - Creator of HeavenGPT
-
-Thank you for using HeavenGPT! We hope it enhances your coding experience. Feel free to reach out if you have any questions or feedback.
