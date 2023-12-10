@@ -16,11 +16,13 @@
       "size" : "32x32"
     },
     {
+      "filename" : "logo 1.png",
       "idiom" : "mac",
       "scale" : "2x",
       "size" : "32x32"
     },
     {
+      "filename" : "logo.png",
       "idiom" : "mac",
       "scale" : "1x",
       "size" : "128x128"
