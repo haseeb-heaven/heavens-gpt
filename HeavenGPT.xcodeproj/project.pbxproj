@@ -11,7 +11,7 @@
 		825FCFD22B253EB900574E2A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 825FCFD12B253EB900574E2A /* ContentView.swift */; };
 		825FCFD42B253EBB00574E2A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 825FCFD32B253EBB00574E2A /* Assets.xcassets */; };
 		825FCFD72B253EBB00574E2A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 825FCFD62B253EBB00574E2A /* Preview Assets.xcassets */; };
-		82E4EE742B255C3700EE5CB6 /* info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 82E4EE732B255C3700EE5CB6 /* info.plist */; };
+		82E4EE762B258C4600EE5CB6 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 82E4EE752B258C4600EE5CB6 /* logo.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,7 +21,7 @@
 		825FCFD32B253EBB00574E2A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		825FCFD62B253EBB00574E2A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		825FCFD82B253EBB00574E2A /* HeavenGPT.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HeavenGPT.entitlements; sourceTree = "<group>"; };
-		82E4EE732B255C3700EE5CB6 /* info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = info.plist; sourceTree = "<group>"; };
+		82E4EE752B258C4600EE5CB6 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,8 +56,8 @@
 			children = (
 				825FCFCF2B253EB900574E2A /* HeavenGPTApp.swift */,
 				825FCFD12B253EB900574E2A /* ContentView.swift */,
+				82E4EE752B258C4600EE5CB6 /* logo.png */,
 				825FCFD32B253EBB00574E2A /* Assets.xcassets */,
-				82E4EE732B255C3700EE5CB6 /* info.plist */,
 				825FCFD82B253EBB00574E2A /* HeavenGPT.entitlements */,
 				825FCFD52B253EBB00574E2A /* Preview Content */,
 			);
@@ -135,9 +135,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				82E4EE762B258C4600EE5CB6 /* logo.png in Resources */,
 				825FCFD72B253EBB00574E2A /* Preview Assets.xcassets in Resources */,
 				825FCFD42B253EBB00574E2A /* Assets.xcassets in Resources */,
-				82E4EE742B255C3700EE5CB6 /* info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

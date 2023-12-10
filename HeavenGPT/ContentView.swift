@@ -247,20 +247,45 @@ struct MessageInputView: View {
     }
 }
 
-// MARK: - ContentView (for reference)
 struct ContentView: View {
     @StateObject private var viewModel = ChatViewModel()
-
     var body: some View {
         VStack {
-            if viewModel.isLoading {
-                ProgressView()
-            } else {
-                ErrorView(errorMessage: viewModel.errorMessage)
-                ChatScrollView(messages: $viewModel.messages, viewModel: viewModel, deleteMessage: viewModel.deleteMessage)
-
-                MessageInputView(prompt: $viewModel.prompt, sendAction: viewModel.sendMessage)
+            
+            HStack{
+                Image("logo")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .padding()
+                
+                Text("Heaven GPT")
+                    .font(.largeTitle)
+                    .padding()
             }
+            
+            Text("Welcome, how can I help you today?")
+                .font(.title)
+                .padding()
+
+            ScrollView {
+                ForEach(viewModel.messages) { message in
+                    ChatMessageView(message: message,
+                        deleteAction: {
+                            viewModel.deleteMessage(message)
+                        },
+                        copyAction: {
+                            let pasteboard = NSPasteboard.general
+                            pasteboard.clearContents()
+                            pasteboard.setString(message.content, forType: .string)
+                        },
+                        saveAction: {
+                            viewModel.saveMessageToFile(message)
+                        })
+                }
+            }.frame(width: 600, height: 300)
+                .padding()
+
+            MessageInputView(prompt: $viewModel.prompt, sendAction: viewModel.sendMessage)
         }
         .frame(width: 600, height: 400)
         .padding()
