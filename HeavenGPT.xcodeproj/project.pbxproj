@@ -12,6 +12,7 @@
 		825FCFD42B253EBB00574E2A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 825FCFD32B253EBB00574E2A /* Assets.xcassets */; };
 		825FCFD72B253EBB00574E2A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 825FCFD62B253EBB00574E2A /* Preview Assets.xcassets */; };
 		82E4EE762B258C4600EE5CB6 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 82E4EE752B258C4600EE5CB6 /* logo.png */; };
+		82E4EE792B26174300EE5CB6 /* Highlightr in Frameworks */ = {isa = PBXBuildFile; productRef = 82E4EE782B26174300EE5CB6 /* Highlightr */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				82E4EE792B26174300EE5CB6 /* Highlightr in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -89,6 +91,7 @@
 			);
 			name = HeavenGPT;
 			packageProductDependencies = (
+				82E4EE782B26174300EE5CB6 /* Highlightr */,
 			);
 			productName = HeavenGPT;
 			productReference = 825FCFCC2B253EB900574E2A /* HeavenGPT.app */;
@@ -120,6 +123,7 @@
 			mainGroup = 825FCFC32B253EB900574E2A;
 			packageReferences = (
 				825FCFDE2B253FB100574E2A /* XCRemoteSwiftPackageReference "OpenAISwift" */,
+				82E4EE772B26174200EE5CB6 /* XCRemoteSwiftPackageReference "Highlightr" */,
 			);
 			productRefGroup = 825FCFCD2B253EB900574E2A /* Products */;
 			projectDirPath = "";
@@ -358,7 +362,23 @@
 				minimumVersion = 1.4.1;
 			};
 		};
+		82E4EE772B26174200EE5CB6 /* XCRemoteSwiftPackageReference "Highlightr" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/raspu/Highlightr.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.1.2;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		82E4EE782B26174300EE5CB6 /* Highlightr */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 82E4EE772B26174200EE5CB6 /* XCRemoteSwiftPackageReference "Highlightr" */;
+			productName = Highlightr;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 825FCFC42B253EB900574E2A /* Project object */;
 }
