@@ -47,7 +47,8 @@ We welcome contributions to make HeavenGPT even better! If you'd like to contrib
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ### GPT **LICENSE**
-- This app uses **HeavenGPT** which has its own license. See [HeavenGPT-Licence](https://chatgpt-4all.haseebmir.repl.co/privacy) for details, and make sure to comply with it and read it before using this app.
+- This app uses customised version of **ChatGPT** called **HeavenGPT** which has its own license. See [HeavenGPT-Licence](https://heaven-gpt.haseebmir.repl.co/privacy) for details, and make sure to comply with it and read it before using this app.
+- This doesn't require any **API_KEY** to work its free and secure version.
 
 ### GPT **Models Used**
 - This uses OpenAI **GPT-3.5 Turbo Model**. See [OpenAI](https://openai.com) for details, and make sure to comply with it and read it before using this app.
