@@ -174,9 +174,11 @@ class ChatViewModel: ObservableObject {
         let fileURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent(filename)
         log("File URL: \(fileURL)")
         do {
-            showAlertMessage(message: "Saved to file: \(fileURL)")
             try message.content.write(to: fileURL, atomically: true, encoding: .utf8)
             log("Saved to file: \(fileURL)")
+            // open file in text editor.
+            NSWorkspace.shared.open(fileURL)
+            
         } catch {
             showAlertMessage(message: "Error saving to file: \(error.localizedDescription)", title: "Error")
             log("Error saving to file: \(error.localizedDescription)")
